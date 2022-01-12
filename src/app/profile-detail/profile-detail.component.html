@@ -1,0 +1,53 @@
+<!-- Toolbar -->
+<div class="toolbar shadow" role="banner" >
+    
+    <h4 class="font-weight-normal m-0">
+        <a routerLink="/profile" class="mx-3 text-white"><small><i class="fas fa-arrow-left"></i></small></a>
+        {{selectedObj.name}}
+    </h4>
+  </div>
+  <div class="content info">
+    <h6 class="float-left w-100 pt-3">Proficiency: <span><i class="fas fa-biking"></i> {{selectedObj.proficiency}}</span></h6>
+    <h6 class="float-left w-100 py-3">Recommendations: <span>{{selectedObj.recommendations}}</span></h6>
+    <div class="brdr mb-3"></div>
+    <h5 class="float-left w-100 pt-3 mb-4">Alexandar's related experiences:</h5>
+    <div class="float-left w-100 mb-4">
+        <h6 class="theme-color">Founding Member And tech lead</h6>
+        <h6>The executed company</h6>
+        <h6>Feb 2015 - Dec 2016</h6>
+    </div>
+    <div class="brdr mb-3"></div>
+    <h5 class="float-left w-100 pt-3">Other People with this skill:</h5>
+    <div class="position-relative mt-4 d-flex align-items-center w-100 ">
+        <div class="wrap-img"
+         style="--size:80px;--font-size:55px;--border-width:4px;">
+         <div class="outer-box"></div> 
+         <img src="../../assets/placeholder-img.png">
+        </div>
+        <div class="pl-3 mr-auto">
+            <h6 class="theme-color">Zohar</h6>
+            <p class="m-0">Web developer</p>
+        </div>
+        <div class="rounded-btn">
+            <a class="btn btn-primary border-0 mt-3 mx-2 theme-color shadow" >
+                <i class="fas fa-eye"></i>
+            </a>
+          </div>
+       </div>
+       <div class="position-relative mt-4 d-flex align-items-center w-100 ">
+        <div class="wrap-img"
+         style="--size:80px;--font-size:55px;--border-width:4px;">
+         <div class="outer-box"></div> 
+         <img src="../../assets/placeholder-img.png">
+        </div>
+        <div class="pl-3 mr-auto">
+            <h6 class="theme-color">Puneet Sethi</h6>
+            <p class="m-0">Web developer</p>
+        </div>
+        <div class="rounded-btn">
+            <a class="btn btn-primary border-0 mt-3 mx-2 theme-color shadow" >
+                <i class="fas fa-eye"></i>
+            </a>
+          </div>
+       </div>
+  </div>

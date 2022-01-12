@@ -1,0 +1,72 @@
+<!-- Toolbar -->
+<div class="toolbar shadow" role="banner" >
+    <button class="btn text-white mx-2">
+      <i class="fas fa-bars"></i>
+    </button>
+    <a class="m-0 h3 text-white" routerLink="/profile">torre<span class="theme-color">.co</span></a>
+      <div class="spacer"></div>
+      <a  routerLink="/search" class="btn text-white">
+        <i class="fas fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" class="theme-color" class="pr-3">
+       SIGN IN
+      </a>
+  </div>
+  <div class="content justify-content-center" *ngIf="isLoading">
+    <div class="p-2 w-100 info search-result wrapper d-flex align-items-center justify-content-center" >
+        <span class="theme-color"><i class="fas fa-circle-notch fa-spin fa-2x"></i></span>
+    </div>
+  </div>
+  <div class="content" role="main" *ngIf="!isLoading">
+   
+
+    <div class="position-relative mt-3" >
+        <div class="wrap-img text-center"
+         style="--size:120px;--font-size:75px;--border-width:4px;">
+         <div class="outer-box"></div> 
+         <img *ngIf="bios.person.picture" src="{{bios.person.picture}}">
+         <img *ngIf="!bios.person.picture" src="../../assets/placeholder-img.png">
+        </div>
+       </div>
+      
+        <!-- Resources -->
+        <h4 class="mt-4 mb-2  text-center">{{bios.person.name}}</h4>
+        <p class="mb-5">{{bios.person.summaryOfBio}}</p>
+        <div class="info float-left w-100"> 
+          <h6 class="text-left" *ngIf="bios.strengths.length>0">Skills  and Interests:</h6>
+      
+    
+      
+          <div class="float-left w-100 mt-4" *ngIf="expertStrength.length>0">
+            <i class="fas fa-running"></i> Expert
+            <div class="rounded-btn">
+              <a class="btn btn-primary border-0 mt-3 mx-2" *ngFor="let expert of expertStrength;" [routerLink]="['/profile-detail', expert]" >{{expert.name}}</a>
+            </div>
+          </div>
+          <div class="float-left w-100 mt-4" *ngIf="proficientStrength.length>0" >
+            <i class="fas fa-running"></i> Proficient
+            <div class="rounded-btn">
+              <a class="btn btn-primary border-0 mt-3 mx-2" *ngFor="let proficient of proficientStrength;" [routerLink]="['/profile-detail', proficient]" >{{proficient.name}}</a>
+            </div>
+          </div>
+          <div class="float-left w-100 mt-4" *ngIf="masterStrength.length>0">
+            <i class="fas fa-running"></i> Master / Influencer
+            <div class="rounded-btn">
+              <a class="btn btn-primary border-0 mt-3 mx-2" *ngFor="let master of masterStrength;" [routerLink]="['/profile-detail', master]" >{{master.name}}</a>
+            </div>
+          </div>
+          <div class="float-left w-100 mt-4" *ngIf="noExperienceInterestedStrength.length>0">
+            <i class="fas fa-running"></i> No experience, but interested
+            <div class="rounded-btn">
+              <a class="btn btn-primary border-0 mt-3 mx-2" *ngFor="let noExp of noExperienceInterestedStrength;" [routerLink]="['/profile-detail', noExp]" >{{noExp.name}}</a>
+            </div>
+          </div>
+          <div class="float-left w-100 mt-4 mb-3" *ngIf="noviceStrength.length>0">
+            <i class="fas fa-running"></i> Novice
+            <div class="rounded-btn">
+              <a class="btn btn-primary border-0 mt-3 mx-2" *ngFor="let novice of noviceStrength;" [routerLink]="['/profile-detail', novice]" >{{novice.name}}</a>
+            </div>
+          </div>
+        </div>
+  </div>
+

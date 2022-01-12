@@ -1,0 +1,90 @@
+<div class="toolbar shadow" role="banner" >
+    <h4 class="font-weight-normal m-0">
+        <a routerLink="/profile" class="mx-3 text-white"><small><i class="fas fa-arrow-left"></i></small></a>
+    </h4>
+    <a class="m-0 h3 text-white" routerLink="/profile">torre<span class="theme-color">.co</span></a>
+      <div class="spacer"></div>
+      <a  routerLink="/search" class="btn text-white">
+        <i class="fas fa-search"></i>
+      </a>
+      <a href="#" style="color:#BECC75" class="pr-3">
+       SIGN IN
+      </a>
+  </div>
+  <div class="content">
+      <div class="top-wrapper pb-3 col">
+        <h5 class="float-left w-100 info">Search</h5>
+        <ul class="nav nav-tabs d-flex text-center" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active text-nowrap" id="searchbynames-tab" data-toggle="tab" href="#searchbynames" role="tab" aria-controls="searchbyjobs" 
+              aria-selected="true">PEOPLE BY NAMES</a>
+            </li>
+            <li class="nav-item text-nowrap">
+              <a class="nav-link" id="job-tab" data-toggle="tab" href="#job" role="tab" aria-controls="job" aria-selected="false" (click)="searchJobs();">JOBS</a>
+            </li>
+          </ul>
+      </div>
+      <div class="tab-content w-100" id="myTabContent">
+        <div class="tab-pane fade show active" id="searchbynames" role="tabpanel" aria-labelledby="searchbynames-tab">
+            <div class="wrapper">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text border-0">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                    <input (keyup)="searchUsers($event)" class="form-control border-0 shadow-none pl-0" placeholder="Search people or organizations by name" />
+                </div>
+                <div class="listing-wrapper">
+                    <div class="p-2 w-100 info search-result" *ngIf="isLoading">
+                        <i class="fas fa-circle-notch fa-spin theme-color"></i> Loading
+                    </div>
+                    <a class="position-relative p-2 pb-3 d-flex align-items-center w-100 search-result info" *ngFor="let user of users;" [routerLink]="['/profile', user]">
+                        <div class="wrap-img position-relative"
+                         style="--size:60px;--font-size:55px;--border-width:4px;">
+                         <div class="outer-box"></div> 
+                         <img *ngIf="user.picture" src="{{user.picture}}">
+                         <img *ngIf="!user.picture" src="../../assets/placeholder-img.png">
+                        </div>
+                        <div class="pl-3 mr-auto">
+                            <h6 class="theme-color">{{user.name}}</h6>
+                            <p class="m-0">{{user.professionalHeadline}}</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="job" role="tabpanel" aria-labelledby="job-tab">
+            <div class="p-2 w-100 info search-result wrapper d-flex align-items-center justify-content-center" *ngIf="isLoading">
+                <span class="theme-color"><i class="fas fa-circle-notch fa-spin fa-2x"></i></span>
+            </div>
+            <div class="wrapper" *ngIf="!isLoading">
+                <div class="p-2 search-result w-100 mb-3" *ngFor="let job of jobs;" >
+                    <div class="position-relative p-2 pb-3 d-flex align-items-center w-100 info">
+                        <div class="wrap-img position-relative"
+                         style="--size:60px;--font-size:55px;--border-width:4px;">
+                         <div class="outer-box"></div> 
+                         <img src="{{job.organizations[0].picture}}">
+                        </div>
+                        <div class="pl-3 mr-auto">
+                            <h6 class="theme-color d-inline-block">{{job.organizations[0].name}}</h6>
+                            <p class="m-0">{{job.objective}}</p>
+                        </div>
+                       </div>
+                       <div class="d-flex p-2">
+                            <a class="text-muted">
+                                <i class="fas fa-briefcase"></i> 
+                                {{job.type}}
+                            </a>
+                       </div>
+                       <div class="selectedUser shadow">
+                        <input class="form-control shadow-none" value="">
+                        <h6 class="" >
+                            <a  class="badge badge-light h3"><i class="fas fa-pencil"></i> puneetmsethi <a href="javascript:void(0);" class="cursor pl-1 text-dark"><i class="fas fa-times"></i></a></a>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+  </div>
